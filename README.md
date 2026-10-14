@@ -1,6 +1,6 @@
-# Lot Size Calculator for Trading
+# Piplet 💧
 
-Simple, free position size calculator for **forex pairs**, **gold / silver**, and **US indices (US30, NAS100, SP500)**.
+Take a sip, not a gulp. A tiny, friendly position size calculator for **forex pairs**, **gold / silver**, and **US indices (US30, NAS100, SP500)**.
 
 White + blue theme. No backend, no dependencies, no API keys — pure HTML/CSS/JS. Works offline. Host free on GitHub Pages.
 

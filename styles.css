@@ -1,4 +1,4 @@
-/* Lot Size Calculator — professional minimal, white + blue */
+/* Piplet — professional minimal, white + blue */
 :root {
   --bg: #ffffff;
   --bg-soft: #f6f8fc;
@@ -62,8 +62,9 @@ a { color: inherit; }
 .logo::before {
   content: "";
   display: inline-block;
-  width: 10px; height: 10px;
-  border-radius: 3px;
+  width: 11px; height: 11px;
+  border-radius: 50% 50% 50% 4px;
+  transform: rotate(-45deg);
   background: linear-gradient(135deg, var(--accent), #60a5fa);
   margin-right: 10px;
   box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
