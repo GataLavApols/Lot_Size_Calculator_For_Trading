@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Free position size calculator for forex pairs, gold, silver and US indices (US30, NAS100, SP500)." />
+  <title>Lot Size Calculator for Trading</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <span class="logo">Lot Size Calculator</span>
+      <span class="badge">Forex &amp; US Indices</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="intro">
+      <h1>Position size calculator</h1>
+      <p>For forex pairs, gold, silver and US indices — <strong>US30</strong>, <strong>NAS100</strong>, <strong>SP500</strong>. USD account. Enter your risk and stop loss to get your lot size instantly.</p>
+    </section>
+
+    <div class="layout">
+      <form class="card form" id="calc-form" novalidate>
+        <div class="field">
+          <label for="pair">Pair / instrument</label>
+          <select id="pair" required></select>
+          <p class="hint" id="pair-hint"></p>
+        </div>
+
+        <div class="field">
+          <label for="account">Account size (USD)</label>
+          <input id="account" type="number" min="0" step="any" value="1000" placeholder="e.g. 1000" required />
+        </div>
+
+        <div class="field">
+          <label>Risk size</label>
+          <div class="segmented" role="tablist" aria-label="Risk mode">
+            <button type="button" id="mode-pct" class="seg active" aria-pressed="true">% Percent</button>
+            <button type="button" id="mode-cash" class="seg" aria-pressed="false">$ Dollars</button>
+          </div>
+          <input id="risk" type="number" min="0" step="any" value="1" placeholder="e.g. 1" required />
+          <p class="hint" id="risk-hint">1% of $1,000 = $10.00 risk</p>
+        </div>
+
+        <div class="field">
+          <label for="sl" id="sl-label">Stop loss (pips)</label>
+          <input id="sl" type="number" min="0" step="any" value="20" placeholder="e.g. 20" required />
+        </div>
+
+        <div class="field" id="price-wrap" hidden>
+          <label for="price" id="price-label">Current price</label>
+          <input id="price" type="number" min="0" step="any" placeholder="e.g. 150.00" />
+          <p class="hint" id="price-hint"></p>
+        </div>
+
+        <button type="submit" class="btn">Calculate lot size</button>
+        <p class="error" id="error" role="alert" hidden></p>
+      </form>
+
+      <section class="card results" aria-live="polite">
+        <h2>Your position</h2>
+        <div class="result-main">
+          <span class="result-label">Lot size</span>
+          <strong class="result-lots" id="out-lots">—</strong>
+          <span class="result-units" id="out-units"></span>
+        </div>
+        <dl class="kv">
+          <div><dt>Risk amount</dt><dd id="out-risk">$—</dd></div>
+          <div><dt>Pip / point value</dt><dd id="out-pip">—</dd></div>
+          <div><dt>Stop loss</dt><dd id="out-sl">—</dd></div>
+          <div><dt>Contract size</dt><dd id="out-contract">—</dd></div>
+        </dl>
+        <p class="formula" id="out-formula"></p>
+        <p class="warn" id="out-warn" hidden></p>
+        <div class="notes">
+          <h3>How it works</h3>
+          <ul>
+            <li>Forex standard lot = <strong>100,000</strong> units. Indices 1.0 lot = contract size <strong>1</strong> ($1 per point).</li>
+            <li>Gold (XAUUSD): 1 lot = 100 oz, 1 pip = 0.1 → <strong>$10 / pip / lot</strong>. Silver: 1 lot = 5,000 oz → <strong>$50 / pip / lot</strong>.</li>
+            <li>Pairs ending in USD need no price. All others need one conversion price from your broker.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <footer class="foot">
+      <p>Educational tool only — not financial advice. Always confirm contract specs with your broker.</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
