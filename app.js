@@ -177,6 +177,14 @@ function calculate(e) {
   $("out-formula").textContent =
     `Lots = ${fmtMoney(riskAmount)} ÷ (${sl} ${unitWord}s × ${fmtMoney(pvp)}) = ${lotsRaw.toFixed(4)} → ${lots.toFixed(2)} (rounded down)`;
 
+  // Fluid pulse animation on every successful recalculation
+  const main = $("result-main");
+  if (main) {
+    main.classList.remove("pulse");
+    void main.offsetWidth; // restart animation
+    main.classList.add("pulse");
+  }
+
   // Warnings
   const warns = [];
   const riskPct = (riskAmount / acc) * 100;
