@@ -1,5 +1,7 @@
 # Piplet 💧
 
+<img src="assets/piplet-logo-512.png" alt="Piplet" width="120" />
+
 Take a sip, not a gulp. A tiny, friendly position size calculator for **forex pairs**, **gold / silver**, and **US indices (US30, NAS100, SP500)**.
 
 White + blue theme. No backend, no dependencies, no API keys — pure HTML/CSS/JS. Works offline. Host free on GitHub Pages.
@@ -9,6 +11,7 @@ White + blue theme. No backend, no dependencies, no API keys — pure HTML/CSS/J
 - `index.html` — UI (pair dropdown, account size, risk %/$, stop loss, conditional price)
 - `styles.css` — white + blue theme
 - `app.js` — instrument table + math
+- `assets/` — Piplet logo, header mark and favicons (PNG + ICO)
 
 ## Math (USD account)
 
